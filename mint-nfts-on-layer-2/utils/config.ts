@@ -1,12 +1,12 @@
-import { Reddio } from '@reddio.com/js';
+import { Reddio } from "@reddio.com/js";
 
-const isVercel = process.env.IS_VERCEL !== '1';
+const isVercel = process.env.IS_VERCEL !== "1";
 
 let reddio: Reddio;
 const initReddio = (client: any) => {
-  if (typeof window !== 'undefined' && !reddio) {
+  if (typeof window !== "undefined" && !reddio) {
     reddio = new Reddio({
-      env: isVercel ? 'main' : 'test',
+      env: isVercel ? "main" : "test",
       wagmiClient: client,
     });
   }

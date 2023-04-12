@@ -11,7 +11,6 @@ import { goerli } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import "@rainbow-me/rainbowkit/styles.css";
-import { Reddio } from "@reddio.com/js";
 import { initReddio } from "@/utils/config";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -37,7 +36,7 @@ const wagmiClient = createClient({
 
 export default function Home() {
   useEffect(() => {
-    // initReddio(wagmiClient);
+    initReddio(wagmiClient);
     // let i = 0;
     // const init = async () => {
     //   if (i > 1) {
