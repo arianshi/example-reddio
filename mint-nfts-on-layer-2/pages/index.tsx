@@ -12,12 +12,16 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import "@rainbow-me/rainbowkit/styles.css";
 import { Reddio } from "@reddio.com/js";
+import { initReddio } from "@/utils/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const { chains, provider } = configureChains(
   [goerli],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID! }), publicProvider()]
+  [
+    alchemyProvider({ apiKey: "fLZl25gQrNAZBoxSx5FM8D7reAd4U1_I" }),
+    publicProvider(),
+  ]
 );
 
 const { connectors } = getDefaultWallets({
@@ -31,14 +35,9 @@ const wagmiClient = createClient({
   provider,
 });
 
-const reddio = new Reddio({
-  wagmiClient,
-  env: "test",
-});
-
 export default function Home() {
   useEffect(() => {
-    initReddio(wagmiClient);
+    // initReddio(wagmiClient);
     // let i = 0;
     // const init = async () => {
     //   if (i > 1) {
@@ -50,8 +49,6 @@ export default function Home() {
     //   addStarkKey(publicKey);
     // };
   }, []);
-
-  useEffect(() => {}, []);
 
   return (
     <WagmiConfig client={wagmiClient}>
