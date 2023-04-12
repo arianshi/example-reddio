@@ -35,6 +35,7 @@ const wagmiClient = createClient({
 });
 
 export default function Home() {
+  // initReddio is asynchronous function
   useEffect(() => {
     initReddio(wagmiClient);
     // let i = 0;
@@ -47,7 +48,7 @@ export default function Home() {
     //   console.log(publicKey, privateKey);
     //   addStarkKey(publicKey);
     // };
-  }, []);
+  }, [initReddio]);
 
   return (
     <WagmiConfig client={wagmiClient}>
